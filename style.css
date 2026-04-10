@@ -1,0 +1,158 @@
+/* Modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Rubik:wght@400;500&display=swap');
+
+:root {
+    --bg-color: #e0e5ec;
+    --text-color: #37474f;
+    --primary-color: #4a90e2;
+    --shadow-light: #ffffff;
+    --shadow-dark: #a3b1c6;
+    --radius: 20px;
+}
+
+body {
+    /* Using Poppins for English and Rubik for Hebrew/Arabic */
+    font-family: 'Poppins', 'Rubik', sans-serif; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Main wrapper - Neumorphism effect */
+.container {
+    background-color: var(--bg-color);
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 10px 10px 20px var(--shadow-dark),
+                -10px -10px 20px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Textarea - Inset (sunken) effect */
+#text {
+    width: 100%;
+    height: 40vh;
+    padding: 20px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--bg-color);
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    resize: none;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+    
+    /* Inset shadow */
+    box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                inset -5px -5px 10px var(--shadow-light);
+
+    /* Text alignment settings */
+    direction: ltr;
+    unicode-bidi: plaintext;
+    text-align: left;
+}
+
+#text:focus {
+    box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+}
+
+/* Controls section */
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Modern speed slider */
+.speed-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #6a7c8a;
+}
+
+#speed {
+    flex-grow: 1;
+    max-width: 200px;
+    cursor: pointer;
+}
+
+/* Button group layout */
+.button-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Modern buttons - Neumorphism pop-out effect */
+button {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    
+    /* Outset shadow */
+    box-shadow: 5px 5px 10px var(--shadow-dark),
+                -5px -5px 10px var(--shadow-light);
+}
+
+button:hover {
+    color: var(--primary-color);
+}
+
+/* Click effect - Button sinks in */
+button:active {
+    box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+    transform: translateY(1px);
+}
+
+/* Unique hover colors for specific buttons */
+#play-button:hover { background-color: rgba(74, 144, 226, 0.1); color: #4a90e2; }
+#pause-button:hover { background-color: rgba(241, 196, 15, 0.1); color: #f1c40f; }
+#stop-button:hover { background-color: rgba(231, 76, 60, 0.1); color: #e74c3c; }
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 500px) {
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+    .container {
+        padding: 25px;
+    }
+}
